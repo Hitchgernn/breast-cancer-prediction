@@ -7,6 +7,11 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
+# =========================================================
+# SECTION: DATA LOADING
+# =========================================================
+
+
 # In[1]:
 
 
@@ -19,6 +24,11 @@ df.head()
 
 
 df.isnull().sum()
+
+
+# =========================================================
+# SECTION: EXPLORATORY DATA ANALYSIS (EDA)
+# =========================================================
 
 
 # In[3]:
@@ -38,6 +48,11 @@ for i, col in enumerate(cols):
 
 plt.tight_layout()
 plt.show()
+
+
+# =========================================================
+# SECTION: DATA PREPROCESSING
+# =========================================================
 
 
 # In[4]:
@@ -68,6 +83,11 @@ plt.figure(figsize=(8, 6))
 sns.heatmap(df[kolom_korelasi].corr(), annot=True, cmap='coolwarm', fmt='.2f', linewidths=0.5)
 plt.title('Heatmap Korelasi Fitur Mammography')
 plt.show()
+
+
+# =========================================================
+# SECTION: FEATURE ENGINEERING
+# =========================================================
 
 
 # In[6]:
@@ -115,6 +135,11 @@ def build_feature_matrix(df):
 kolom_features_terbaik = ['BI-RADS Assesment', 'Age', 'Shape', 'Margin']
 X_data, engineered_feature_names = build_feature_matrix(df)
 y_data = df['Severity'].to_numpy(dtype=int)
+
+
+# =========================================================
+# SECTION: SPLITTING AND SCALING UTILITIES
+# =========================================================
 
 
 # In[8]:
@@ -204,6 +229,11 @@ class StandardScaler:
 
     def fit_transform(self, X):
         return self.fit(X).transform(X)
+
+
+# =========================================================
+# SECTION: MODEL IMPLEMENTATION
+# =========================================================
 
 
 # In[11]:
@@ -552,6 +582,11 @@ class ModelEvaluator:
         plt.show()
 
 
+# =========================================================
+# SECTION: VALIDATION UTILITIES
+# =========================================================
+
+
 # In[13]:
 
 
@@ -723,6 +758,11 @@ def plot_baseline_vs_tuned(baseline_metrics, tuned_metrics):
     plt.show()
 
 
+# =========================================================
+# SECTION: BASELINE RESULTS
+# =========================================================
+
+
 # In[17]:
 
 
@@ -764,6 +804,11 @@ baseline_test_metrics = ModelEvaluator.print_report(
 )
 
 
+# =========================================================
+# SECTION: RESULT VALIDATION
+# =========================================================
+
+
 # In[18]:
 
 
@@ -784,6 +829,11 @@ setelan_terbaik, riwayat_pencarian = grid_search_cv(
 )
 
 plot_grid_search_results(riwayat_pencarian)
+
+
+# =========================================================
+# SECTION: FINAL TUNED MODEL
+# =========================================================
 
 
 # In[19]:
@@ -831,10 +881,20 @@ print(
 )
 
 
+# =========================================================
+# SECTION: RESULT COMPARISON
+# =========================================================
+
+
 # In[20]:
 
 
 plot_baseline_vs_tuned(baseline_test_metrics, final_metrics)
+
+
+# =========================================================
+# SECTION: FINAL VISUALIZATIONS
+# =========================================================
 
 
 # In[21]:
@@ -858,6 +918,11 @@ ModelEvaluator.plot_training_history(model_final)
 
 
 final_metrics
+
+
+# =========================================================
+# SECTION: MARKDOWN NOTES FOR NOTEBOOK
+# =========================================================
 
 
 # In[24]:
