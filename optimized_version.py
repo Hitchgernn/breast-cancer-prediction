@@ -132,8 +132,7 @@ def build_feature_matrix(df):
     return X, feature_names
 
 
-kolom_features_terbaik = ['BI-RADS Assesment', 'Age', 'Shape', 'Margin']
-X_data, engineered_feature_names = build_feature_matrix(df)
+X_data, _ = build_feature_matrix(df)
 y_data = df['Severity'].to_numpy(dtype=int)
 
 
@@ -900,7 +899,7 @@ plot_baseline_vs_tuned(baseline_test_metrics, final_metrics)
 # In[21]:
 
 
-ModelEvaluator.plot_correlation(df, kolom_features_terbaik)
+ModelEvaluator.plot_correlation(df, ['BI-RADS Assesment', 'Age', 'Shape', 'Margin'])
 ModelEvaluator.plot_precision_recall_curve(model_final, X_val_scaled, y_val, current_t=t_medis)
 ModelEvaluator.plot_confusion_matrix(y_test, y_pred_final)
 
