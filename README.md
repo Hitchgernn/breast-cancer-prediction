@@ -85,23 +85,23 @@ This is useful because Logistic Regression is a linear model, so manual feature 
 
 For each sample:
 
-\[
+```math
 z = Xw + b
-\]
+```
 
 Where:
 
-- \(X\) = input features
-- \(w\) = weight vector
-- \(b\) = bias
+- `X` = input features
+- `w` = weight vector
+- `b` = bias
 
 ### 2. Sigmoid Function
 
 The sigmoid function converts the linear output into a probability:
 
-\[
+```math
 \sigma(z) = \frac{1}{1 + e^{-z}}
-\]
+```
 
 This gives a value between 0 and 1, interpreted as the probability that the sample belongs to class 1.
 
@@ -109,71 +109,71 @@ This gives a value between 0 and 1, interpreted as the probability that the samp
 
 The loss function for binary classification is:
 
-\[
+```math
 J(w, b) = -\frac{1}{m}\sum_{i=1}^{m}\left[y^{(i)}\log(\hat{y}^{(i)}) + (1-y^{(i)})\log(1-\hat{y}^{(i)})\right]
-\]
+```
 
 Where:
 
-- \(m\) = number of samples
-- \(y\) = true label
-- \(\hat{y}\) = predicted probability
+- `m` = number of samples
+- `y` = true label
+- `y_hat` = predicted probability
 
 ### 4. L2 Regularization
 
 To reduce overfitting, the implementation may include L2 regularization:
 
-\[
+```math
 J_{reg}(w, b) = J(w, b) + \frac{\lambda}{2m}\sum_{j=1}^{n} w_j^2
-\]
+```
 
 Where:
 
-- \(\lambda\) = regularization strength
+- `lambda` = regularization strength
 
 ### 5. Gradient Descent Updates
 
 The gradients are computed as:
 
-\[
+```math
 dw = \frac{1}{m}X^T(\hat{y} - y)
-\]
+```
 
-\[
+```math
 db = \frac{1}{m}\sum_{i=1}^{m}(\hat{y}^{(i)} - y^{(i)})
-\]
+```
 
 With L2 regularization, the weight gradient becomes:
 
-\[
+```math
 dw = \frac{1}{m}X^T(\hat{y} - y) + \frac{\lambda}{m}w
-\]
+```
 
 Parameter updates:
 
-\[
+```math
 w := w - \alpha \cdot dw
-\]
+```
 
-\[
+```math
 b := b - \alpha \cdot db
-\]
+```
 
 Where:
 
-- \(\alpha\) = learning rate
+- `alpha` = learning rate
 
 ## Thresholding
 
 The model outputs probabilities, not final class labels directly. A threshold is used to convert probabilities into class predictions:
 
-\[
+```math
 \hat{y} =
 \begin{cases}
 1 & \text{if } p \ge \text{threshold} \\
 0 & \text{if } p < \text{threshold}
 \end{cases}
-\]
+```
 
 This project uses both:
 
@@ -195,25 +195,25 @@ The project evaluates model performance using:
 
 Metric definitions:
 
-\[
+```math
 Accuracy = \frac{TP + TN}{TP + TN + FP + FN}
-\]
+```
 
-\[
+```math
 Precision = \frac{TP}{TP + FP}
-\]
+```
 
-\[
+```math
 Recall = \frac{TP}{TP + FN}
-\]
+```
 
-\[
+```math
 F1 = \frac{2 \cdot Precision \cdot Recall}{Precision + Recall}
-\]
+```
 
-\[
+```math
 Specificity = \frac{TN}{TN + FP}
-\]
+```
 
 Where:
 
