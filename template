@@ -1,0 +1,10 @@
+Data loading
+Exploratory Data Analysis (EDA)
+Missing-value handling and preprocessing
+Feature engineering
+Train/validation/test split
+Feature scaling
+Baseline Logistic Regression training
+Validation with k-fold cross-validation and manual grid search
+Final tuned model training
+Threshold selection and final evaluation

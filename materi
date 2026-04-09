@@ -1,0 +1,33 @@
+introduction : 
+Kanker payudara merupakan salah satu penyebab kematian tertinggi pada wanita di seluruh dunia. Penggunaan teknologi mamografi dapat membantu dalam pendeteksian dini. Namun, interpretasi hasil mammography sering kali memiliki risiko human-error. Dalam projek ini, kami mengembangkan model klasifikasi otomatis berbasis Machine Learning untuk membantu praktisi medis membedakan massa tumor jinak (benign) dan ganas (malignant).
+
+problem statement
+Mamografi adalah metode skrining terbaik, tetapi Positive Predictive Value (PPV) rendah.
+
+Dampaknya: ~70% biopsi payudara yang dilakukan ternyata tidak perlu (hasilnya jinak).
+
+Akibat:
+Pasien stres dan cemas.
+Tindakan medis yang menyakitkan (invasif) tanpa alasan kuat.
+Pemborosan biaya dan waktu rumah sakit.
+
+Dataset details
+Dataset yang digunakan dalam proyek ini berfokus pada deteksi massa mamografi (Mammographic Mass). Data ini dikumpulkan dari Institute of Radiology of the University Erlangen-Nuremberg antara tahun 2003 hingga 2006.
+
+Dataset ini terdiri dari total 961 data pasien.
+Benign (Jinak / Kelas 0): 516 kasus
+Malignant (Ganas / Kelas 1): 445 kasus
+
+Terdapat 6 kolom dalam dataset ini (1 variabel target, 1 variabel non-prediktif, dan 4 variabel prediktif utama):
+BI-RADS assessment (Ordinal): Penilaian klinis awal dari dokter, dengan rentang 1 (pasti jinak) hingga 5 (sangat dicurigai ganas).
+Age (Integer): Usia pasien.
+Shape (Nominal): Bentuk massa tumor
+Margin (Nominal): Karakteristik tepi massa 
+Density (Ordinal): Kepadatan massa tumor 
+Severity (Binomial / Variabel Target): Tingkat keparahan yang sebenarnya (0 = benign, 1 = malignant).
+
+Objectives : Membangun model Machine Learning berbasis Logistic Regression untuk memprediksi tingkat keparahan massa payudara.
+
+-) Dukungan keputusan
+-) Akurasi Medis
+-) Efisiensi
